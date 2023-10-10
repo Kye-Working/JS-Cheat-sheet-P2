@@ -12,19 +12,19 @@ console.log(`Earth gravity x5 : ${gravityMulitpler(5, EarthsGravity)}m/s²`);
 /*An object representing the eventual 
 completion or failure of an asynchronous operation*/
 
-/*Pending a result*/
+/*pending a result*/
 const promise1 = new Promise((resolve, reject) => {
-  let fileLoaded = false;
+  let fileLoaded = true;
 
   if (fileLoaded) {
-    resolve("File loaded");
+    resolve("\n File A loaded");
   } else {
-    reject("File missing");
+    reject("\n File A missing");
   }
 });
 console.log("\n");
 
-/*Fulfilling a result*/
+/*fulfilling a result*/
 promise1
   .then((value) => {
     /*If true file will be recognised as loaded*/
@@ -33,5 +33,25 @@ promise1
   .catch((error) => console.log(error));
 
 const promise2 = new Promise((resolve) => setTimeout(resolve, 2000));
+promise2.then(() => console.log("\n Promise A fulfilled."));
 
-promise2.then(() => console.log("\n Promise fulfilled."));
+const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
+wait(2500).then(() => console.log("\n Promise B fulfilled."));
+
+/*async*/
+/*makes a function return a promise*/
+async function loadFile() {
+  let fileLoaded = false;
+  if (fileLoaded) {
+    return "\n File B loaded";
+  } else {
+    /*throw will raise an error*/
+    throw "\n File B missing";
+  }
+}
+
+loadFile()
+  .then((value) => {
+    console.log(value);
+  }) /*catch will catch the error*/
+  .catch((error) => console.log(error));
