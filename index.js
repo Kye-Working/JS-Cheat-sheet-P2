@@ -1,7 +1,7 @@
 console.log("\n");
 
 /*ES6 Module*/
-/*Importing functions, values & others from external file*/
+/*A file of reusable code that can be imported*/
 import { EarthsGravity, double, gravityMulitpler } from "./util.js";
 
 console.log(`Earths gravity : ${EarthsGravity}m/s²`);
@@ -33,10 +33,10 @@ promise1
   .catch((error) => console.log(error));
 
 const promise2 = new Promise((resolve) => setTimeout(resolve, 2000));
-promise2.then(() => console.log("\n Promise A fulfilled."));
+promise2.then(() => console.log("\n Promise 1 fulfilled."));
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
-wait(2500).then(() => console.log("\n Promise B fulfilled."));
+wait(2500).then(() => console.log("\n Promise 2 fulfilled."));
 
 /*async*/
 /*makes a function return a promise*/
@@ -50,8 +50,27 @@ async function loadFile() {
   }
 }
 
+/*this section of code can be removed if
+await is used along side the async fucntion*/
+/*will give identical result as code below*/
 loadFile()
   .then((value) => {
     console.log(value);
   }) /*catch will catch the error*/
   .catch((error) => console.log(error));
+console.log("\n");
+
+/*Await*/
+/*makes an async function wait for a promise 
+to finish before continuing*/
+/*Await must be used within an async function*/
+async function startProcess() {
+  try {
+    let checker = await loadFile();
+    console.log(checker);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+startProcess();
