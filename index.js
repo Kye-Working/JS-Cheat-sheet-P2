@@ -84,5 +84,30 @@ console.log(document.title);
 console.log(document.URL);
 document.body.style.backgroundColor = "#323b47";
 document.body.style.color = "#b8a818";
-document.getElementById("counterH1").innerHTML = "!!! Counter !!!";
+document.getElementById("Title1").innerHTML = "The Title";
 console.log("\n");
+
+/*HTML - add/change elements*/
+/*.textContent : is used to change HTML in JS*/
+/*.innerHTML : can be used but more valnerable*/
+const myDiv1 = document.querySelector("#JSchanges");
+const Heading = document.createElement("h1");
+Heading.innerHTML = "JS Add & Changing";
+/*prepend() for the top*/
+myDiv1.prepend(Heading);
+
+const myList1 = document.querySelector("#fruit");
+const Listitem1 = document.createElement("li");
+Listitem1.textContent = "Mango";
+/*append() for the bottom*/
+myList1.append(Listitem1);
+
+const myList2 = document.querySelector("#fruit");
+const Listitem2 = document.createElement("li");
+Listitem2.textContent = "Lime";
+/*For inserting inbetween somewhere*/
+myList2.insertBefore(Listitem2, myList2.getElementsByTagName("li")[2]);
+
+const myDiv2 = document.querySelector("#JSchanges");
+const line = document.createElement("hr");
+myDiv2.append(line);
