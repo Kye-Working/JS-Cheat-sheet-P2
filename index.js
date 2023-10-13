@@ -92,7 +92,7 @@ console.log("\n");
 /*.innerHTML : can be used but more valnerable*/
 const myDiv1 = document.querySelector("#JSchanges");
 const Heading = document.createElement("h1");
-Heading.innerHTML = "JS Add & Changing";
+Heading.textContent = "ADDING/CHANGING HTML VIA JS";
 /*prepend() for the top*/
 myDiv1.prepend(Heading);
 
@@ -111,3 +111,13 @@ myList2.insertBefore(Listitem2, myList2.getElementsByTagName("li")[2]);
 const myDiv2 = document.querySelector("#JSchanges");
 const line = document.createElement("hr");
 myDiv2.append(line);
+
+/*CSS - add/change properties*/
+const title = document.getElementById("Title2");
+
+title.style.backgroundColor = "black";
+title.style.color = "lightgreen";
+title.style.fontFamily = "Charcoal";
+title.style.border = "1px solid";
+title.style.textAlign = "center";
+title.style.padding = "10px";
