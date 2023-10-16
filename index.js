@@ -121,3 +121,33 @@ title.style.fontFamily = "Charcoal";
 title.style.border = "1px solid";
 title.style.textAlign = "center";
 title.style.padding = "10px";
+
+/*Events*/
+/*onclick*/
+const buttonElement = document.getElementById("eventButton");
+buttonElement.onclick = doEvent;
+
+function doEvent() {
+  alert("Event occuring.");
+}
+
+/*onload*/
+buttonElement.onload = alert("Body loaded");
+
+const colorbox = document.getElementById("colorBox");
+colorbox.style.backgroundColor = "green";
+colorbox.style.border = "1px solid";
+colorbox.style.textAlign = "center";
+colorbox.style.padding = "10px";
+
+/*onmouseover*/
+colorbox.onmouseover = colorChangerHover;
+function colorChangerHover() {
+  colorbox.style.backgroundColor = "red";
+}
+
+/*onmouseout*/
+colorbox.onmouseout = colorChangeDefault;
+function colorChangeDefault() {
+  colorbox.style.backgroundColor = "green";
+}
