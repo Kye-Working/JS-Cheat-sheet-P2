@@ -174,3 +174,24 @@ innerBox.addEventListener("click", changeColor);
 function changeColor() {
   this.style.backgroundColor = "white";
 }
+
+/*Show/hide HTML elements*/
+const hidingButton = document.getElementById("hidingButton");
+const visibilityButton = document.getElementById("visibilityButton");
+const myPara1 = document.getElementById("myPara1");
+
+hidingButton.addEventListener("click", () => {
+  if (myPara1.style.display == "none") {
+    myPara1.style.display = "block";
+  } else {
+    myPara1.style.display = "none";
+  }
+});
+
+visibilityButton.addEventListener("click", () => {
+  if (myPara1.style.visibility == "hidden") {
+    myPara1.style.visibility = "visible";
+  } else {
+    myPara1.style.visibility = "hidden";
+  }
+});
