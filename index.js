@@ -134,20 +134,43 @@ function doEvent() {
 /*onload*/
 buttonElement.onload = alert("Body loaded");
 
-const colorbox = document.getElementById("colorBox");
-colorbox.style.backgroundColor = "green";
-colorbox.style.border = "1px solid";
-colorbox.style.textAlign = "center";
-colorbox.style.padding = "10px";
+const colorboxA = document.getElementById("colorBox1");
+colorboxA.style.backgroundColor = "green";
+colorboxA.style.border = "1px solid";
+colorboxA.style.textAlign = "center";
+colorboxA.style.padding = "10px";
 
 /*onmouseover*/
-colorbox.onmouseover = colorChangerHover;
-function colorChangerHover() {
-  colorbox.style.backgroundColor = "red";
+colorboxA.onmouseover = colorChangerHoverA;
+function colorChangerHoverA() {
+  colorboxA.style.backgroundColor = "red";
 }
 
 /*onmouseout*/
-colorbox.onmouseout = colorChangeDefault;
-function colorChangeDefault() {
-  colorbox.style.backgroundColor = "green";
+colorboxA.onmouseout = colorChangeDefaultA;
+function colorChangeDefaultA() {
+  /*this. can be used for the event being selected*/
+  this.style.backgroundColor = "green";
+}
+
+/*.addEventListener(event, function, useCapture)*/
+/*used to add many event handlers to one element*/
+const outerBox = document.getElementById("outerBox");
+outerBox.style.backgroundColor = "black";
+outerBox.style.border = "1px solid";
+outerBox.style.textAlign = "center";
+outerBox.style.padding = "10px";
+
+const innerBox = document.getElementById("innerBox");
+innerBox.style.backgroundColor = "black";
+innerBox.style.border = "1px solid";
+innerBox.style.textAlign = "center";
+innerBox.style.padding = "10px";
+
+/*adding true to the end will give that event preference*/
+outerBox.addEventListener("click", changeColor, true);
+innerBox.addEventListener("click", changeColor);
+
+function changeColor() {
+  this.style.backgroundColor = "white";
 }
