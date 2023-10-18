@@ -195,3 +195,43 @@ visibilityButton.addEventListener("click", () => {
     myPara1.style.visibility = "hidden";
   }
 });
+
+/*Detect key presses*/
+const keyBox = document.getElementById("keyBox");
+keyBox.style.backgroundColor = "grey";
+keyBox.style.color = "black";
+keyBox.style.width = "100px";
+keyBox.style.height = "100px";
+keyBox.style.textAlign = "center";
+keyBox.style.position = "relative";
+keyBox.style.borderRadius = "100px";
+
+/*window represents browser window*/
+window.addEventListener("keydown", move);
+let x = 0;
+let y = 0;
+
+function move(event) {
+  switch (event.key) {
+    /*Adds that many 5px to a side 
+    depending on which key was pressed*/
+    case "ArrowDown":
+      y += 5;
+      keyBox.style.top = y + "5px";
+      break;
+    case "ArrowUp":
+      y += -5;
+      keyBox.style.top = y + "px";
+      break;
+    case "ArrowRight":
+      x += 5;
+      keyBox.style.left = x + "px";
+      break;
+    case "ArrowLeft":
+      x -= 5;
+      keyBox.style.left = x + "px";
+      break;
+    default:
+      break;
+  }
+}
