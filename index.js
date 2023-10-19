@@ -165,7 +165,7 @@ const innerBox = document.getElementById("innerBox");
 innerBox.style.backgroundColor = "black";
 innerBox.style.border = "1px solid";
 innerBox.style.textAlign = "center";
-innerBox.style.padding = "10px";
+innerBox.style.padding = "1px";
 
 /*adding true to the end will give that event preference*/
 outerBox.addEventListener("click", changeColor, true);
@@ -196,6 +196,19 @@ visibilityButton.addEventListener("click", () => {
   }
 });
 
+/*Window*/
+/*interface used to talk with the web browser*/
+/*DOM is a property of the window*/
+console.dir(window);
+window.confirm("Press ok to continue");
+const windowButton1 = document.getElementById("windowOpen");
+windowButton1.addEventListener("click", () =>
+  window.open("https://www.google.co.uk/")
+);
+
+const windowButton2 = document.getElementById("windowClose");
+windowButton2.addEventListener("click", () => window.close());
+
 /*Detect key presses*/
 const keyBox = document.getElementById("keyBox");
 keyBox.style.backgroundColor = "grey";
@@ -204,7 +217,7 @@ keyBox.style.width = "100px";
 keyBox.style.height = "100px";
 keyBox.style.textAlign = "center";
 keyBox.style.position = "relative";
-keyBox.style.borderRadius = "100px";
+keyBox.style.borderRadius = "10px";
 
 /*window represents browser window*/
 window.addEventListener("keydown", move);
@@ -217,10 +230,10 @@ function move(event) {
     depending on which key was pressed*/
     case "ArrowDown":
       y += 5;
-      keyBox.style.top = y + "5px";
+      keyBox.style.top = y + "px";
       break;
     case "ArrowUp":
-      y += -5;
+      y -= 5;
       keyBox.style.top = y + "px";
       break;
     case "ArrowRight":
